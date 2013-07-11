@@ -1,0 +1,2 @@
+module SmokeBreaksHelper
+end

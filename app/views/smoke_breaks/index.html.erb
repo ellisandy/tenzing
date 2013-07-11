@@ -1,0 +1,18 @@
+<% title "Smoke Breaks" %>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Recorded Time</th>
+  </tr>
+  <% for smoke_break in @smoke_breaks %>
+    <tr>
+      <td><%= smoke_break.user_id %></td>
+      <td><%= smoke_break.recorded_time %></td>
+      <td><%= link_to "Edit", edit_smoke_break_path(smoke_break) %></td>
+      <td><%= link_to "Destroy", smoke_break, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Smoke Breaks", new_smoke_break_path %></p>

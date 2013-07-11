@@ -1,0 +1,38 @@
+
+	<div class="large-12 columns">
+		<div class="panel">
+			<h5>Smokes per day</h5>
+			<div id="smoke-break-chart" style="width:100%; height:400px;"></div>
+		</div>
+	</div>
+
+<div class="large-11 large-offset-1">
+	<a href="<%= quick_smoke_url %>" class="button">Default Button</a>
+</div>
+
+<%= simple_form_for @smoke_break, controller: :smoke_breaks, action: :create do |f| %>
+	<%= f.association :user, input_html: {value: current_user.id }, :as => :hidden %>
+	<%= f.input :recorded_time, input_html: { value: DateTime.now }, as: :hidden %>
+	<%= f.submit "Smoke Break", :disable_with => 'Smoking...' %>
+<% end %>
+
+
+<script type="text/javascript" charset="utf-8">
+	$(function () {
+		new Highcharts.Chart({
+			chart: { renderTo: 'smoke-break-chart' },
+		    title: { text: 'Smokes per Day' },
+		    xAxis: { type: 'datetime' },
+		    yAxis: {
+		      title: { text: 'Smokes'}
+		    },
+		    series: [{
+				pointInterval: <%= 1.day * 1000 %>,
+				pointStart: <%= 3.weeks.ago.at_midnight.to_i * 1000 %>,
+				data: [1, 2, 5, 7, 3]
+		    }]
+		});
+	});
+</script>
+
+
