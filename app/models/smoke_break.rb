@@ -1,11 +1,11 @@
 class SmokeBreak < ActiveRecord::Base
-  attr_accessible :user, :recorded_time
+  attr_accessible :user_id, :recorded_time
   
   belongs_to :user
   validates :user, :presence => true
   
-  def self.total_on(time)
-    where("time(recorded_time) = ?",time).count
+  def self.total_on(date)
+    where("date(created_at) = ?",date).count
   end
 end
 # == Schema Information

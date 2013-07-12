@@ -13,7 +13,7 @@
   	<!-- Set the viewport width to device width for mobile -->
   	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+  	<title><%= content_for?(:title) ? yield(:title) : "Tenzing" %></title>
 
   	<%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
@@ -25,52 +25,54 @@
 	
 	 <!-- Header and Nav -->
 	<nav class="top-bar">
-	<ul class="title-area">
-	<!-- Title Area -->
-	<li class="name">
-	<h1>
-	<a href="#">
-	Top Bar Title
-	</a>
-	</h1>
-	</li>
-	<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-	</ul>
+		<ul class="title-area">
+			<!-- Title Area -->
+			<li class="name">
+				<h1>
+					<a href="#">
+						Tenzing
+					</a>
+				</h1>
+			</li>
+			<li class="toggle-topbar menu-icon">
+				<a href="#"><span>Menu</span></a>
+			</li>
+		</ul>
 
-	<section class="top-bar-section">
-	<!-- Left Nav Section -->
-	<ul class="left">
-	<li class="divider"></li>
-	<li class="has-dropdown">
-	<a class="active" href="#">Main Item 1</a>
-	<ul class="dropdown">
-	<li><label>Section Name</label></li>
-	<li><a href="#" class="">Dropdown Level 1</a></li>
-	<li><a href="#">Dropdown Option</a></li>
-	<li><a href="#">Dropdown Option</a></li>
-	<li class="divider"></li>
-	<li><label>Section Name</label></li>
-	<li><a href="#">Dropdown Option</a></li>
-	<li><a href="#">Dropdown Option</a></li>
-	<li><a href="#">Dropdown Option</a></li>
-	<li class="divider"></li>
-	<li><a href="#">See all &rarr;</a></li>
-	</ul>
-	</li>
-	<li class="divider"></li>
-	<li><a href="#">Main Item 2</a></li>
-	<li class="divider"></li>
-	<li class="has-dropdown">
-	<a href="#">Main Item 3</a>
-	<ul class="dropdown">
-	<li><a href="#">Dropdown Option</a></li>
-	<li><a href="#">Dropdown Option</a></li>
-	<li><a href="#">Dropdown Option</a></li>
-	<li class="divider"></li>
-	<li><a href="#">See all &rarr;</a></li>
-	</ul>
-	</li>
-	</ul>
+		<section class="top-bar-section">
+			<!-- Left Nav Section -->
+			<ul class="left">
+				<li class=""><%= link_to "Smoke Break", quick_smoke_path() %></li>
+				<li class="has-dropdown">
+					<a class="active" href="#">Main Item 1</a>
+					<ul class="dropdown">
+						<li><label>Section Name</label></li>
+						<li><a href="#" class="">Dropdown Level 1</a></li>
+						<li><a href="#">Dropdown Option</a></li>
+						<li><a href="#">Dropdown Option</a></li>
+						<li class="divider"></li>
+						<li><label>Section Name</label></li>
+						<li><a href="#">Dropdown Option</a></li>
+						<li><a href="#">Dropdown Option</a></li>
+						<li><a href="#">Dropdown Option</a></li>
+						<li class="divider"></li>
+						<li><a href="#">See all &rarr;</a></li>
+					</ul>
+				</li>
+				<li class="divider"></li>
+				<li><a href="#">Main Item 2</a></li>
+				<li class="divider"></li>
+				<li class="has-dropdown">
+					<a href="#">Main Item 3</a>
+					<ul class="dropdown">
+						<li><a href="#">Dropdown Option</a></li>
+						<li><a href="#">Dropdown Option</a></li>
+						<li><a href="#">Dropdown Option</a></li>
+						<li class="divider"></li>
+						<li><a href="#">See all &rarr;</a></li>
+					</ul>
+				</li>
+			</ul>
 
 	<!-- Right Nav Section -->
 	<ul class="right">

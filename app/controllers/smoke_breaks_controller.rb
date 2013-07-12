@@ -36,7 +36,7 @@ class SmokeBreaksController < ApplicationController
   end
   
   def quick_smoke
-    @smoke_break = SmokeBreak.create( :user => current_user, :recorded_time => DateTime.now )
+    @smoke_break = SmokeBreak.create( :user_id => current_user.id, :recorded_time => DateTime.now )
     redirect_to root_path, :notice => "You have smoked #{SmokeBreak.count} times today."
   end
 end
