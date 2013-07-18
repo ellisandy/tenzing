@@ -9,6 +9,7 @@ gem 'simple_form'
 gem 'jquery-rails'
 gem "bcrypt-ruby", :require => "bcrypt"
 gem "highcharts-rails", "~> 3.0.0"
+gem 'therubyracer'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
