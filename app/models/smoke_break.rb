@@ -5,8 +5,8 @@ class SmokeBreak < ActiveRecord::Base
   validates :user, :presence => true
 
 
-  def self.total_on(t = Time.now)
-         SmokeBreak.all(:conditions => ["created_at > ? AND created_at < ?", t.at_beginning_of_day, t.tomorrow.at_beginning_of_day]).count
+  def self.total_on(t)
+         SmokeBreak.all(:conditions => ["created_at > ? AND created_at < ?", t.at_beginning_of_day.in_time_zone('Central Time (US & Canada)'), t.tomorrow.at_beginning_of_day.in_time_zone('Central Time (US & Canada)')]).count
    end
   
 end

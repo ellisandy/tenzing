@@ -20,7 +20,7 @@
 		    series: [{
 				pointInterval: <%= 1.day * 1000 %>,
 				pointStart: <%= 3.weeks.ago.at_midnight.to_i * 1000 %>,
-				data: <%= (3.weeks.ago.to_date..Date.today).map { |date| SmokeBreak.total_on(date)}.inspect %>
+				data: <%= (3.weeks.ago.to_date..Time.now.to_date).map { |date| SmokeBreak.total_on(date)}.inspect %>
 				// data: [1, 2, 5, 7, 3]
 		    }]
 		});
