@@ -7,5 +7,5 @@ Feature: Smoking Break
 	Scenario: Smoke Break
 		Given I am registered and logged in
 		When I visit "/"
-		And click "smoke break"
-		Then I should see "Smoke break recorded"
+		And click "Smoke Break" link
+		Then I should see "You have smoked"

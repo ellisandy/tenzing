@@ -7,7 +7,6 @@ describe SmokeBreaksController do
     @controller.stubs(:current_user).returns(@user)
   end
 
-  render_views
 
   it "index action should render index template" do
     get :index
@@ -15,15 +14,13 @@ describe SmokeBreaksController do
   end
 
   it "create action should render new template when model is invalid" do
-    smoke_break = FactoryGirl.create(:smoke_break)
-    smoke_break.stubs(:valid?).returns(false)
+    SmokeBreak.any_instance.stub(:valid?).and_return(false)
     post :create
     response.should render_template(:new)
   end
 
   it "create action should redirect when model is valid" do
-    SmokeBreak.any_instance.stubs(:valid?).returns(true)
-    post :create
+    post :create, :smoke_break => FactoryGirl.attributes_for(:smoke_break, :user_id => @user.id) 
     response.should redirect_to(root_url)
   end
 
@@ -36,9 +33,8 @@ describe SmokeBreaksController do
 
   it "update action should render edit template when model is invalid" do
     smoke_break = FactoryGirl.create(:smoke_break, :user => @user)
-    smoke_break.stubs(:valid?).returns(false)
-    put :update, :id => smoke_break
-    response.should redirect_to(root_url)
+    SmokeBreak.stub(:valid?).and_return(false)
+    put :update, :id => smoke_break.to_param, :smoke_break => {:user_id => nil}
     response.should render_template(:edit)
   end
 

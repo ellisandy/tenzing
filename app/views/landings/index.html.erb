@@ -6,17 +6,8 @@
 		</div>
 	</div>
 
-<div class="large-11 large-offset-1">
-	<a href="<%= quick_smoke_url %>" class="button">Default Button</a>
-</div>
 
-<%= simple_form_for @smoke_break, controller: :smoke_breaks, action: :create do |f| %>
-	<%= f.association :user, input_html: {value: current_user.id }, :as => :hidden %>
-	<%= f.input :recorded_time, input_html: { value: DateTime.now }, as: :hidden %>
-	<%= f.submit "Smoke Break", :disable_with => 'Smoking...' %>
-<% end %>
-
-
+	<!-- Highchart Scripts -->
 <script type="text/javascript" charset="utf-8">
 	$(function () {
 		new Highcharts.Chart({
@@ -29,7 +20,7 @@
 		    series: [{
 				pointInterval: <%= 1.day * 1000 %>,
 				pointStart: <%= 3.weeks.ago.at_midnight.to_i * 1000 %>,
-				data: <%= (3.weeks.ago.to_date..Date.today).map { |date| SmokeBreak.total_on(date).to_f}.inspect %>
+				data: <%= (3.weeks.ago.to_date..Date.today).map { |date| SmokeBreak.total_on(date)}.inspect %>
 				// data: [1, 2, 5, 7, 3]
 		    }]
 		});

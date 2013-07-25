@@ -17,4 +17,3 @@
 //= require highcharts/highcharts-more
 //= require_tree .
 
-$(function(){ $(document).foundation(); });

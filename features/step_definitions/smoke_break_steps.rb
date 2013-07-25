@@ -8,8 +8,12 @@ Given(/^I am registered and logged in$/) do
   current_path.should eq("/")
 end
 
-When(/^click "(.*?)"$/) do |arg1|
-  click_button "Smoke Break"
+When(/^click "(.*?)" link$/) do |arg1|
+  click_link arg1 
+end
+
+When(/^click "(.*?)" button$/) do |arg1|
+  click_button arg1 
 end
 
 Then(/^I should see "(.*?)"$/) do |arg1|

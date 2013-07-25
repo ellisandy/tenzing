@@ -5,7 +5,7 @@ class SmokeBreaksController < ApplicationController
 
   def create
     @smoke_break = SmokeBreak.new(params[:smoke_break])
-    if @smoke_break.save!
+    if @smoke_break.save
       redirect_to root_path, :notice => "Smoke break recorded"
     else
       render :action => 'new'

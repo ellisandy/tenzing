@@ -28,7 +28,7 @@ describe UsersController do
   end
 
   it "edit action should render edit template" do
-    @controller.stubs(:current_user).returns(User.first)
+    @controller.stubs(:current_user).returns(FactoryGirl.create(:user))
     get :edit, :id => "ignored"
     response.should render_template(:edit)
   end

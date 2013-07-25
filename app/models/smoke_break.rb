@@ -6,7 +6,7 @@ class SmokeBreak < ActiveRecord::Base
 
 
   def self.total_on(t = Time.now)
-         SmokeBreak.all(:conditions => ["created_at > ? AND created_at < ?", t.at_beginning_of_day, t.tomorrow.at_beginning_of_day])
+         SmokeBreak.all(:conditions => ["created_at > ? AND created_at < ?", t.at_beginning_of_day, t.tomorrow.at_beginning_of_day]).count
    end
   
 end

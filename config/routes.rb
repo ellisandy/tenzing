@@ -1,4 +1,10 @@
 Tenzing::Application.routes.draw do
+  resources :genres
+
+
+  resources :books
+
+
   resources :smoke_breaks
 
   match 'user/edit' => 'users#edit', :as => :edit_current_user
