@@ -1,18 +1,25 @@
 <% title "Smoke Breaks" %>
+<div class="row">
+   <div class="small-8 large-8 columns">
+      <table>
+	<tr>
+	  <th>User</th>
+	  <th>Recorded Time</th>
+	</tr>
+	<% for smoke_break in @smoke_breaks %>
+	  <tr>
+	    <td><%= smoke_break.user_id %></td>
+	    <td><%= smoke_break.created_at %></td>
+	    <td><%= link_to "Edit", edit_smoke_break_path(smoke_break) %></td>
+	    <td><%= link_to "Destroy", smoke_break, :confirm => 'Are you sure?', :method => :delete %></td>
+	  </tr>
+	<% end %>
+      </table>
 
-<table>
-  <tr>
-    <th>User</th>
-    <th>Recorded Time</th>
-  </tr>
-  <% for smoke_break in @smoke_breaks %>
-    <tr>
-      <td><%= smoke_break.user_id %></td>
-      <td><%= smoke_break.recorded_time %></td>
-      <td><%= link_to "Edit", edit_smoke_break_path(smoke_break) %></td>
-      <td><%= link_to "Destroy", smoke_break, :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
-  <% end %>
-</table>
-
-<p><%= link_to "New Smoke Breaks", new_smoke_break_path %></p>
+      <p><%= link_to "New Smoke Breaks", new_smoke_break_path %></p>
+   </div>
+   <div class="small-4 large-4 columns">
+      <p> this is pretty crazy</p>
+      <p> My name is Andy </p>
+   </div>
+</div>

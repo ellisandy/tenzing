@@ -6,7 +6,7 @@ class SmokeBreak < ActiveRecord::Base
 
 
   def self.total_on(t)
-         SmokeBreak.all(:conditions => ["created_at > ? AND created_at < ?", t.at_beginning_of_day.in_time_zone('Central Time (US & Canada)'), t.tomorrow.at_beginning_of_day.in_time_zone('Central Time (US & Canada)')]).count
+         SmokeBreak.all(:conditions => ["recorded_time > ? AND recorded_time < ?", t.at_beginning_of_day.in_time_zone('Central Time (US & Canada)'), t.tomorrow.at_beginning_of_day.in_time_zone('Central Time (US & Canada)')]).count
    end
   
 end

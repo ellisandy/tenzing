@@ -1,4 +1,10 @@
 Tenzing::Application.routes.draw do
+  resources :possessions
+
+
+  resources :categories
+
+
   resources :genres
 
 

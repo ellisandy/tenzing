@@ -2,7 +2,7 @@ class GenresController < ApplicationController
   # GET /genres
   # GET /genres.json
   def index
-    @genres = Genre.all
+    @genres = current_user.genres 
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,6 +14,7 @@ class GenresController < ApplicationController
   # GET /genres/1.json
   def show
     @genre = Genre.find(params[:id])
+    @books = @genre.books
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +25,7 @@ class GenresController < ApplicationController
   # GET /genres/new
   # GET /genres/new.json
   def new
-    @genre = Genre.new
+    @genre = current_user.genres.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,11 +41,11 @@ class GenresController < ApplicationController
   # POST /genres
   # POST /genres.json
   def create
-    @genre = Genre.new(params[:genre])
+    @genre = current_user.genres.new(params[:genre])
 
     respond_to do |format|
       if @genre.save
-        format.html { redirect_to @genre, notice: 'Genre was successfully created.' }
+        format.html { redirect_to genres_path, notice: 'Genre was successfully created.' }
         format.json { render json: @genre, status: :created, location: @genre }
       else
         format.html { render action: "new" }

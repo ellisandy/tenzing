@@ -12,16 +12,38 @@
 
    <section class="top-bar-section">
       <ul class="right">
-	 <li class="">
+	 <li class="has-dropdown">
 	    <%= link_to "Smoke Break", quick_smoke_path() %>
+	    <ul class="dropdown">
+	       <li><a href="/smoke_breaks">List Smoke Breaks</a></li>
+	    </ul>
+
+	 </li>
+	 <li class="divider"></li>
+	 <li class="has-dropdown">
+	    <a class="" href="/possessions">Possessions</a>
+	    <ul class="dropdown">
+	       <li><label>Books stuffses</a></li>
+	       <li><a href="/possessions">List Possessions</a></li>
+	       <li><a href="/possessions/new">Add a possessions</a></li>
+	       <li class="divider"></li>
+	       <li><label>Categories</label></li>
+	       <li class="has-dropdown">
+		   <a href="/categories">Categories</a>
+		   <ul class="dropdown">
+		      <li><a href="/categories/">List Categories</a></li>
+		      <li><a href="/categories/new">Add Categories</a></li>
+		   </ul>
+	       </li>
+	    </ul>
 	 </li>
 	 <li class="divider"></li>
 	 <li class="has-dropdown">
 	    <a class="" href="/books">Books</a>
 	    <ul class="dropdown">
 	       <li><label>Books stuffses</a></li>
-	       <li><a href="#">Library</a></li>
-	       <li><a href="#">Add a book</a></li>
+	       <li><a href="/books">Library</a></li>
+	       <li><a href="/books/new">Add a book</a></li>
 	       <li class="divider"></li>
 	       <li><label>Genre</label></li>
 	       <li class="has-dropdown">

@@ -13,6 +13,14 @@ describe BooksController do
       get :index
       assigns(:books).should eq([book])
     end
+
+    it "assigns all books as @books not including other users" do
+      book = FactoryGirl.create_list(:book, 4, :user => @user)
+      @other_user = FactoryGirl.create(:user, :email => "ematil.adsf@email.com", :username => "other-user")
+      other_books = FactoryGirl.create_list(:book, 4, :user => @other_user)
+      get :index
+      assigns(:books).should eq(book)
+    end
   end
 
   describe "GET show" do
@@ -54,7 +62,7 @@ describe BooksController do
 
       it "redirects to the created book" do
         post :create, {:book => FactoryGirl.attributes_for(:book, :user => @user)}
-        response.should redirect_to(Book.last)
+        response.should redirect_to(books_path)
       end
     end
 
@@ -92,7 +100,7 @@ describe BooksController do
       it "redirects to the book" do
         book = FactoryGirl.create(:book, :user => @user) 
         put :update, {:id => book.to_param, :book => FactoryGirl.attributes_for(:book)}
-        response.should redirect_to(book)
+        response.should redirect_to(books_path)
       end
     end
 

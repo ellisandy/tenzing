@@ -52,13 +52,14 @@ describe User do
   end
 
   it "should authenticate by username" do
-    user = FactoryGirl.build(:user, :username => 'foobar', :password => 'secret', :password_confirmation => 'secret')
+    user = FactoryGirl.build(:user, :username => 'foobar', :email => "foo@bar.com", :password => 'secret', :password_confirmation => 'secret')
     user.save!
+    User.count.should eq(1)
     User.authenticate('foobar', 'secret').should == user
   end
 
   it "should authenticate by email" do
-    user = FactoryGirl.build(:user, :email => 'foo@bar.com', :password => 'secret', :password_confirmation => 'secret')
+    user = FactoryGirl.build(:user, :username => "username", :email => 'foo@bar.com', :password => 'secret', :password_confirmation => 'secret')
     user.save!
     User.authenticate('foo@bar.com', 'secret').should == user
   end
@@ -78,6 +79,14 @@ describe User do
   
   it "associates with books" do
     User.new.should respond_to(:books)
+  end
+  
+  it "associates with posessions" do
+    User.new.should respond_to(:possessions)
+  end
+
+  it "associates with categories" do
+    User.new.should respond_to(:categories)
   end
 end
 # == Schema Information

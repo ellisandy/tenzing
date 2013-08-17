@@ -9,9 +9,11 @@ describe GenresController do
 
   describe "GET index" do
     it "assigns all genres as @genres" do
-      genre = FactoryGirl.create(:genre, :user => @user)
+      genre = FactoryGirl.create_list(:genre, 4, :user => @user)
+      other_user = FactoryGirl.create(:user, :username => "Asdaf", :email => "email@email.com")
+      other_genre = FactoryGirl.create_list(:genre, 4, :user => other_user)
       get :index
-      assigns(:genres).should eq([genre])
+      assigns(:genres).should eq(genre)
     end
   end
 
@@ -20,6 +22,20 @@ describe GenresController do
       genre = FactoryGirl.create(:genre, :user => @user)
       get :show, {:id => genre.to_param}
       assigns(:genre).should eq(genre)
+    end
+
+    it "shows all the assigned books" do
+      genre = FactoryGirl.create(:genre, :user => @user)
+      books = FactoryGirl.create_list(:book, 10, :user => @user, :genre => genre)
+      get :show, {:id => genre.to_param}
+      assigns(:books).should eq( genre.books ) 
+    end
+
+    it "retreives all the related books" do
+      genre = FactoryGirl.create(:genre, :user => @user)
+      books = FactoryGirl.create_list(:book, 10, :user => @user, :genre => genre)
+      get :show, {:id => genre.to_param}
+      assigns(:books).count.should eq( 10 ) 
     end
   end
 
@@ -54,7 +70,7 @@ describe GenresController do
 
       it "redirects to the created genre" do
         post :create, {:genre => FactoryGirl.attributes_for(:genre, :user_id => @user.id)}
-        response.should redirect_to(Genre.last)
+        response.should redirect_to(genres_path)
       end
     end
 

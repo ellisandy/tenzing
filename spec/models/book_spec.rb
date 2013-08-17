@@ -17,4 +17,8 @@ describe Book do
   it "associates with user" do
     Book.new.should respond_to(:user)
   end
+
+  it "responds to genre" do
+     Book.new.should respond_to(:genre)
+  end
 end
