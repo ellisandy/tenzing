@@ -1,14 +1,19 @@
-<%= form_for @smoke_break do |f| %>
-	<div data-alert class="alert-box">
-		<%= f.error_messages %>
-	</div>
-  <p>
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
-  </p>
-  <p>
-    <%= f.label :recorded_time %><br />
-    <%= f.datetime_select :recorded_time %>
-  </p>
-  <p><%= f.submit %></p>
-<% end %>
+<div class="row">
+	<%= simple_form_for(@smoke_break, html: { class: "custom" }) do |f| %>
+		<fieldset>
+			<legend>Genre</legend>
+			<div class="row">
+				<div class="large-6 small-3 columns">
+					<div class="form-inputs">
+						<%= f.label :recorded_time %>
+					    <%= f.datetime_select :recorded_time %>
+						<%= f.input :user, :as => :hidden, :input_html => { :value => current_user.id }%>
+					</div>
+					<div class="row">
+						<div id="display-label" class="large-1 small-1 columns">
+							<%= f.button :submit, :class => "small" %>
+						</div>
+					</div>
+				</div>
+			</div>
+	<% end %>

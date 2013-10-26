@@ -1,12 +1,12 @@
-<div class='12 columns'>
-   <h1>New book</h1>
+<div class='row'>
+	<div class='12 columns'>
+	   <h1>New book</h1>
 
-   <%= render 'form' %>
-   <div class="row display">
-      <div class="large-1 columns">
-      </div>
-      <div class="large-11 columns">
-	 <%= link_to 'Back', books_path %>
-      </div>
-   </div>
+	   <%= render 'form' %>
+	   <div class="row display">
+	      <div class="large-11 columns">
+			<%= link_to 'Back', books_path, :class => "post-form-back-link" %>
+	      </div>
+	   </div>
+	</div>
 </div>
