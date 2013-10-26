@@ -1,0 +1,24 @@
+<div class="large-12 columns">
+	<div class="panel">
+		<h5>Smokes per day</h5>
+		<div id="smoke-break-chart" style="width:100%; height:400px;"></div>
+	</div>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+	$(function () {
+		new Highcharts.Chart({
+			chart: { renderTo: 'smoke-break-chart' },
+		    title: { text: 'Smokes per Day' },
+		    xAxis: { type: 'datetime' },
+		    yAxis: {
+		      title: { text: 'Smokes'}
+		    },
+		    series: [{
+				pointInterval: <%= 1.day * 1000 %>,
+				pointStart: <%= 3.weeks.ago.at_midnight.to_i * 1000 %>,
+				data: <%= (3.weeks.ago.in_time_zone("Pacific Time (US & Canada)").to_date..Time.now.in_time_zone("Pacific Time (US & Canada)").to_date).map { |date| SmokeBreak.total_on(date)}.inspect %>
+		    }]
+		});
+	});
+</script>
