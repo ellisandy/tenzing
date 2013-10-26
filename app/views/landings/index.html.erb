@@ -1,1 +1,30 @@
-<%= render "shared/smoke_break" %>
+<div class='row'>
+	<div class='12 columns'>
+		<%= render "shared/smoke_break" %>
+	</div>
+</div>
+<div class='row'>
+	<div class='small-12 large-4 columns'>
+		<div class='panel'>
+			<h4>Possessions</h4>
+			<p>Possessions: <%= Possession.where(user_id: current_user).count %></p>
+			<p>Categories: <%= Category.where(user_id: current_user).count %></p>
+		</div>
+	</div>
+	<div class='small-12 large-4 columns'>
+		<div class='panel'>
+			<h4>Books</h4>
+			<p>Books: <%= Book.where(user_id: current_user).count %></p>
+			<p>Genres: <%= Genre.where(user_id: current_user).count %></p>
+			<p>Number Read: <%= Book.where(:user_id => current_user, :read => true).count %></p>
+			<p>Number Unread: <%= Book.where(:user_id => current_user, :read => false).count %></p>
+		</div>
+	</div>
+	<div class='small-12 large-4 columns'>
+		<div class='panel'>
+			<h4>Groceries</h4>
+			<p>Grocery List:</p>
+			<p>none</p>
+		</div>
+	</div>
+</div>

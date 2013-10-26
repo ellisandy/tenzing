@@ -7,7 +7,7 @@
 					<div class="form-inputs">
 						<%= f.label :recorded_time %>
 					    <%= f.datetime_select :recorded_time %>
-						<%= f.input :user, :as => :hidden, :input_html => { :value => current_user.id }%>
+						<%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id }%>
 					</div>
 					<div class="row">
 						<div id="display-label" class="large-1 small-1 columns">

@@ -7,7 +7,7 @@
 				<%= f.input :title, placeholder: "Title" %>
 				<%= f.input :author, placeholder: "Author" %>
 				<%= f.association :genre %>
-			    <%= f.input :user, :as => :hidden, :input_html => { :value => current_user.id }%>
+			    <%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id }%>
 				<%= f.input :read, as: :boolean, placeholder: "read?" %>
 			</div>
 		</div>

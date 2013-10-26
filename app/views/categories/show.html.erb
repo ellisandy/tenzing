@@ -1,15 +1,52 @@
-<p id="notice"><%= notice %></p>
+<div class='row'>
+	<div class="12 columns">
+	<h2>Category</h2>
+		<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @category.title %>
-</p>
+		<p>
+		  <b>Title:</b>
+		  <%= @category.title %>
+		</p>
 
-<p>
-  <b>User:</b>
-  <%= @category.user_id %>
-</p>
+		<p>
+		  <b>Associated Possessions:</b>
+		  <%= @category.possessions.count %>
+		</p>
 
+		<p>
+		  <b>User:</b>
+		  <%= @category.user.username %>
+		</p>
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+	<% unless @possessions.empty? %>
+		<div class='12 columns'>
+			<h5>Possession List:</h5>
+			<table>
+			  <tr>
+			    <th>Title</th>
+			    <th>User</th>
+			    <th></th>
+			    <th></th>
+			    <th></th>
+			  </tr>
+
+			<% @possessions.each do |possession| %>
+			  <tr>
+			    <td><%= possession.title %></td>
+			    <td><%= possession.user_id %></td>
+			    <td><%= link_to 'Show', possession %></td>
+			    <td><%= link_to 'Edit', edit_possession_path(possession) %></td>
+			    <td><%= link_to 'Destroy', possession, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			  </tr>
+			<% end %>
+			</table>
+		
+		</div>
+	<% else %>
+		<p>No possessions associated with <%= @category.title %></p>
+	<% end %>
+		<%= link_to 'Edit', edit_category_path(@category) %> |
+		<%= link_to 'Back', categories_path %>
+	</div>
+		</div>
+</div>

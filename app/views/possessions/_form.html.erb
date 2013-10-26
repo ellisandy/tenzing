@@ -7,9 +7,8 @@
 				<div class="large-10 small-8 columns">
 					<div class="form-inputs">
 					    <%= f.input :title, placeholder: "Title"  %>
-					    <%= f.association :category, placeholder: "Category" %>
-					    <%= f.input :user, :as => :hidden, :input_html => { :value => current_user.id }%>
-					
+					    <%= f.association :category, :collection => Category.all, :prompt => "Select a Category", placeholder: "Category" %>
+					    <%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id }%>
 					    <%= f.input :description, placeholder: "Description"  %>
 					</div>
 					<div class="row">

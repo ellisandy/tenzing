@@ -6,7 +6,7 @@
 				<div class="large-6 small-3 columns">
 					<div class="form-inputs">
 						<%= f.input :title, placeholder: "Category", input_html: { class: "text" } %>
-					    <%= f.input :user, :as => :hidden, :input_html => { :value => current_user.id }%>
+					    <%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id }%>
 					</div>
 					<div class="row">
 						<div id="display-label" class="large-1 small-1 columns">

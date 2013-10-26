@@ -1,27 +1,35 @@
-<div class="12 columns">
-   <p id="notice"><%= notice %></p>
+<div class='row'>
+	<div class="12 columns">
+	   <p id="notice"><%= notice %></p>
 
-   <p>
-     <b>Title:</b>
-     <%= @book.title %>
-   </p>
+		<h2>Book</h2>
+	   <p>
+	     <b>Title:</b>
+	     <%= @book.title %>
+	   </p>
 
-   <p>
-     <b>Author:</b>
-     <%= @book.author %>
-   </p>
+	   <p>
+	     <b>Author:</b>
+	     <%= @book.author %>
+	   </p>
 
-   <p>
-     <b>User:</b>
-     <%= @book.user_id %>
-   </p>
+		<p>
+			<b>Genre:</b>
+			<%= @book.genre.title %>
+		</p>
 
-   <p>
-     <b>Read:</b>
-     <%= @book.read %>
-   </p>
+	   <p>
+	     <b>User:</b>
+	     <%= @book.user.username %>
+	   </p>
+
+	   <p>
+	     <b>Read:</b>
+	     <%= @book.read %>
+	   </p>
 
 
-   <%= link_to 'Edit', edit_book_path(@book) %> |
-   <%= link_to 'Back', books_path %>
+	   <%= link_to 'Edit', edit_book_path(@book), class: "button small" %> |
+	   <%= link_to 'Back', books_path, class: "button small" %>
+	</div>
 </div>

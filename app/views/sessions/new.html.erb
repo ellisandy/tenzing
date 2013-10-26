@@ -5,10 +5,10 @@
 		<fieldset>
 			<div class="row">
 				<div class="large-10 small-8 columns">
-				<%= label_tag :login, "Username or Email Address" %>
-				<%= text_field_tag :login, params[:login] %>
-				<%= label_tag :password %>
-				<%= password_field_tag :password %>
+					<div class='form-inputs'>
+						<%= text_field_tag :login, params[:login], :placeholder => "Login"%>
+						<%= password_field_tag :password, params[:password], :placeholder => "Password" %>
+					</div>
 				</div>
 				<div class='row'>
 					<div id="display-label" class="large-1 small-1 columns">

@@ -1,12 +1,11 @@
 <div class="row">
-	<h1>Listing books</h1>
-</div>
-<div class="row">
 	<div class="12 columns">
+		<h1>Listing books</h1>
 	      <table>
 		<tr>
 		  <th>Title</th>
 		  <th>Author</th>
+		  <th>Genre</th>
 		  <th>Read</th>
 		  <th></th>
 		  <th></th>
@@ -17,6 +16,7 @@
 		<tr>
 		  <td><%= book.title %></td>
 		  <td><%= book.author %></td>
+		  <td><%= book.genre.title %></td>
 		  <td><%= book.read %></td>
 		  <td><%= link_to 'Show', book %></td>
 		  <td><%= link_to 'Edit', edit_book_path(book) %></td>
@@ -27,7 +27,7 @@
 
 	      <br />
 
-	      <%= link_to 'New Book', new_book_path %>
-	      <%= link_to "New Genre", new_genre_path %>
+	      <%= link_to 'New Book', new_book_path, class: "button small" %>
+	      <%= link_to "New Genre", new_genre_path, class: "button small" %>
 	</div>
 </div>

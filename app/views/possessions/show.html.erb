@@ -1,25 +1,31 @@
-<p id="notice"><%= notice %></p>
+<div class='row'>
+	<div class="12 columns">
+		<h2>Possession</h2>
 
-<p>
-  <b>Category:</b>
-  <%= @possession.category_id %>
-</p>
+		<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @possession.title %>
-</p>
+		<p>
+		  <b>Title:</b>
+		  <%= @possession.title %>
+		</p>
 
-<p>
-  <b>User:</b>
-  <%= @possession.user_id %>
-</p>
+		<p>
+		  <b>Category:</b>
+			<%= link_to @possession.category.title, category_path(@possession.category) %>
+		</p>
 
-<p>
-  <b>Description:</b>
-  <%= @possession.description %>
-</p>
+		<p>
+		  <b>User:</b>
+		  <%= @possession.user.username %>
+		</p>
+
+		<p>
+			<b>Description:</b>
+			<p><%= @possession.description %></p>
+		</p>
 
 
-<%= link_to 'Edit', edit_possession_path(@possession) %> |
-<%= link_to 'Back', possessions_path %>
+		<%= link_to 'Edit', edit_possession_path(@possession) %> |
+		<%= link_to 'Back', possessions_path %>
+	</div>
+</div>
