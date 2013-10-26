@@ -4,6 +4,7 @@ describe SmokeBreak do
   it "should be valid" do
     FactoryGirl.build(:smoke_break).should be_valid
   end
+  it "creates a valid time"
 end
 # == Schema Information
 #
