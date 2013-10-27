@@ -16,7 +16,7 @@
 		    },
 		    series: [{
 				pointInterval: <%= 1.day * 1000 %>,
-				pointStart: <%= 3.weeks.ago.at_midnight.to_i * 1000 %>,
+				pointStart: <%= 3.weeks.ago.in_time_zone("Pacific Time (US & Canada)").at_midnight.to_i * 1000 %>,
 				data: <%= (3.weeks.ago.in_time_zone("Pacific Time (US & Canada)").to_date..Time.now.in_time_zone("Pacific Time (US & Canada)").to_date).map { |date| SmokeBreak.total_on(date)}.inspect %>
 		    }]
 		});
