@@ -1,0 +1,14 @@
+<%= form_for @smoke_break do |f| %>
+	<div data-alert class="alert-box">
+		<%= f.error_messages %>
+	</div>
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
+  </p>
+  <p>
+    <%= f.label :recorded_time %><br />
+    <%= f.datetime_select :recorded_time %>
+  </p>
+  <p><%= f.submit %></p>
+<% end %>

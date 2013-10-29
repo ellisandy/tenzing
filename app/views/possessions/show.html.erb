@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Category:</b>
+  <%= @possession.category_id %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @possession.title %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @possession.user_id %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @possession.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_possession_path(@possession) %> |
+<%= link_to 'Back', possessions_path %>

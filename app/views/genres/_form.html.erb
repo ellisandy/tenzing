@@ -1,0 +1,20 @@
+<div class="row">
+   <%= simple_form_for(@genre) do |f| %>
+      <fieldset>
+	 <legend>Genre</legend>
+        <div class="row collapse">
+	   <div class="large-6 small-3 columns">
+	      <div class="form-inputs">
+		 <%= f.input :title, placeholder: "Genre name", input_html: { class: "text" } %>
+	      </div>
+	   </div>
+
+	   <div class="row"
+	      <div id="display-label" class="large-1 small-1 columns extramargin">
+		 <%= f.button :submit, :class => "small" %>
+	      </div>
+	   </div>
+	</div>
+      <% end %>
+   </fieldset>
+</div>
