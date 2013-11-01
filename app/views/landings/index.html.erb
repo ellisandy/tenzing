@@ -28,3 +28,17 @@
 		</div>
 	</div>
 </div>
+<div class='row'>
+	<div class='small-12 large-4 columns'>
+		<div class='panel'>
+			<h4>Smoke Breaks</h4>
+			<p>Last five recorded:</p>
+			<ul>
+				<% @last_five_smoke_breaks.each do |smoke_break| %>
+					<li><%= smoke_break.recorded_time.in_time_zone("Pacific Time (US & Canada)").strftime("%B %e - %I:%M%p") %></li>
+				<% end%>
+			</ul>
+		</div>
+	</div>
+	
+</div>
