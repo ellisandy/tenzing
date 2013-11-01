@@ -24,7 +24,12 @@
 		<div class='panel'>
 			<h4>Groceries</h4>
 			<p>Grocery List:</p>
-			<p>none</p>
+			<ul>
+				<% @groceries.each do |grocery| %>
+					<li><%= grocery.item %></li>
+				<% end%>
+			</ul>
+
 		</div>
 	</div>
 </div>
