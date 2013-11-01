@@ -1,0 +1,25 @@
+<div class='row'>
+	<div class='12-large columns'>
+		<p id="notice"><%= notice %></p>
+
+		<p>
+		  <b>Item:</b>
+		  <%= @grocery.item %>
+		</p>
+
+		<p>
+		  <b>Location:</b>
+		  <%= @grocery.location %>
+		</p>
+
+		<p>
+		  <b>User:</b>
+		  <%= @grocery.user_id %>
+		</p>
+
+
+		<%= link_to 'Edit', edit_grocery_path(@grocery) %> |
+		<%= link_to 'Back', groceries_path %>
+		
+	</div>
+</div>
