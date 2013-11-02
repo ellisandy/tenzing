@@ -8,3 +8,17 @@ class Book < ActiveRecord::Base
   validates_presence_of :author
   validates_presence_of :title
 end
+# == Schema Information
+#
+# Table name: books
+#
+#  id         :integer         not null, primary key
+#  title      :string(255)
+#  author     :string(255)
+#  user_id    :integer
+#  read       :boolean
+#  created_at :datetime        not null
+#  updated_at :datetime        not null
+#  genre_id   :integer
+#
+

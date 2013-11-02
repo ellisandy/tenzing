@@ -22,3 +22,17 @@ describe Book do
      Book.new.should respond_to(:genre)
   end
 end
+# == Schema Information
+#
+# Table name: books
+#
+#  id         :integer         not null, primary key
+#  title      :string(255)
+#  author     :string(255)
+#  user_id    :integer
+#  read       :boolean
+#  created_at :datetime        not null
+#  updated_at :datetime        not null
+#  genre_id   :integer
+#
+
