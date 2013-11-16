@@ -126,7 +126,7 @@ describe GenresController do
       end
 
       it "re-renders the 'edit' template" do
-	genre = FactoryGirl.create(:genre, :user => @user)
+	      genre = FactoryGirl.create(:genre, :user => @user)
         # Trigger the behavior that occurs when invalid params are submitted
         Genre.any_instance.stub(:save).and_return(false)
         put :update, {:id => genre.to_param, :genre => { "title" => "invalid value" }}

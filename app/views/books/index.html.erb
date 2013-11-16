@@ -1,7 +1,8 @@
 <div class="row">
 	<div class="12 columns">
 		<h1>Listing books</h1>
-	      <table>
+    <% unless @books.empty? %>
+      <table>
 		<tr>
 		  <th>Title</th>
 		  <th>Author</th>
@@ -11,20 +12,25 @@
 		  <th></th>
 		  <th></th>
 		</tr>
-
 	      <% @books.each do |book| %>
 		<tr>
 		  <td><%= book.title %></td>
 		  <td><%= book.author %></td>
+      <% if book.genre %>
 		  <td><%= book.genre.title %></td>
+    <% else %>
+      <td></td>
+    <% end %>
 		  <td><%= book.read %></td>
 		  <td><%= link_to 'Show', book %></td>
 		  <td><%= link_to 'Edit', edit_book_path(book) %></td>
 		  <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 		</tr>
-	      <% end %>
+    <% end %>
 	      </table>
-
+    <% else %>
+      <p>There are no books recorded</p>
+    <% end %>
 	      <br />
 
 	      <%= link_to 'New Book', new_book_path, class: "button small" %>

@@ -41,7 +41,7 @@ class CategoriesController < ApplicationController
   # POST /categories
   # POST /categories.json
   def create
-    @category = Category.new(params[:category])
+    @category = current_user.categories.new(params[:category])
 
     respond_to do |format|
       if @category.save

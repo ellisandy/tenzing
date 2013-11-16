@@ -2,7 +2,7 @@ class GroceriesController < ApplicationController
   # GET /groceries
   # GET /groceries.json
   def index
-    @groceries = Grocery.all
+    @groceries = current_user.groceries.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,7 +24,7 @@ class GroceriesController < ApplicationController
   # GET /groceries/new
   # GET /groceries/new.json
   def new
-    @grocery = Grocery.new
+    @grocery = current_user.groceries.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,7 +40,7 @@ class GroceriesController < ApplicationController
   # POST /groceries
   # POST /groceries.json
   def create
-    @grocery = Grocery.new(params[:grocery])
+    @grocery = current_user.groceries.new(params[:grocery])
 
     respond_to do |format|
       if @grocery.save

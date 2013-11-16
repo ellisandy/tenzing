@@ -1,4 +1,7 @@
 Tenzing::Application.routes.draw do
+  resources :coffee_intakes
+
+
   resources :groceries
 
 

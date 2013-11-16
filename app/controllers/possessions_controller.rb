@@ -40,7 +40,7 @@ class PossessionsController < ApplicationController
   # POST /possessions
   # POST /possessions.json
   def create
-    @possession = Possession.new(params[:possession])
+    @possession = current_user.possessions.new(params[:possession])
 
     respond_to do |format|
       if @possession.save

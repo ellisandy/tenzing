@@ -6,10 +6,12 @@ class User < ActiveRecord::Base
   before_save :prepare_password
   
   has_many :smoke_breaks
+  has_many :coffee_intakes
   has_many :books
   has_many :genres
   has_many :categories
   has_many :possessions
+  has_many :groceries
 
   validates_presence_of :username
   validates_uniqueness_of :username, :email, :allow_blank => true

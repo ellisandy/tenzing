@@ -25,6 +25,7 @@ Given(/^there is a book in the library$/) do
    fill_in "Title", with: "World War Z"
    fill_in "Author", with: "New Author"
    click_button "Create Book"
+   page.find('div.alert-box').should have_text("Book added.")
 end
 
 When(/^I click "(.*?)" link$/) do |arg1|
@@ -37,5 +38,5 @@ When(/^I fill in the modified book form$/) do
 end
 
 Given(/^there is a genre$/) do
-   FactoryGirl.create(:genre, :user => User.last, :title => "Drama") 
+   FactoryGirl.create(:genre, :user => User.last, :title => "Drama")
 end

@@ -1,10 +1,10 @@
 class SmokeBreaksController < ApplicationController
   def index
-    @smoke_breaks = SmokeBreak.all
+    @smoke_breaks = current_user.smoke_breaks.all
   end
 
   def create
-    @smoke_break = SmokeBreak.new(params[:smoke_break])
+    @smoke_break = current_user.smoke_breaks.new(params[:smoke_break])
     if @smoke_break.save
       redirect_to root_path, :notice => "Smoke break recorded"
     else
@@ -32,7 +32,7 @@ class SmokeBreaksController < ApplicationController
   end
 
   def new
-    @smoke_break = SmokeBreak.new
+    @smoke_break = current_user.smoke_breaks.new
   end
   
   def quick_smoke
