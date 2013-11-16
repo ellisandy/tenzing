@@ -40,5 +40,6 @@
 	<%= render "shared/footer" %>
   </body>
 </html>
-
-<%= simple_format params.to_yaml %>
+<% if Rails.env == "development" %>
+	<%= simple_format params.to_yaml %>
+<% end %>
