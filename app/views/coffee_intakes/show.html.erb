@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @coffee_intake.user_id %>
+</p>
+
+<p>
+  <b>Recorded time:</b>
+  <%= @coffee_intake.recorded_time %>
+</p>
+
+
+<%= link_to 'Edit', edit_coffee_intake_path(@coffee_intake) %> |
+<%= link_to 'Back', coffee_intakes_path %>

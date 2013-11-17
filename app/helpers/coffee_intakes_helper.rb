@@ -1,0 +1,2 @@
+module CoffeeIntakesHelper
+end

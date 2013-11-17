@@ -37,6 +37,6 @@ class SmokeBreaksController < ApplicationController
   
   def quick_smoke
     @smoke_break = SmokeBreak.create( :user_id => current_user.id, :recorded_time => DateTime.now )
-    redirect_to root_path, :notice => "You have smoked #{SmokeBreak.total_on(DateTime.now.in_time_zone("Pacific Time (US & Canada)"))} times today."
+    redirect_to root_path, :notice => "You have smoked #{current_user.smoke_breaks.total_on(DateTime.now.in_time_zone("Pacific Time (US & Canada)"))} times today."
   end
 end
