@@ -1,6 +1,10 @@
 class SmokeBreaksController < ApplicationController
   def index
     @smoke_breaks = current_user.smoke_breaks.all
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @smoke_breaks }
+    end
   end
 
   def create
@@ -34,7 +38,7 @@ class SmokeBreaksController < ApplicationController
   def new
     @smoke_break = current_user.smoke_breaks.new
   end
-  
+
   def quick_smoke
     @smoke_break = SmokeBreak.create( :user_id => current_user.id, :recorded_time => DateTime.now )
     redirect_to root_path, :notice => "You have smoked #{current_user.smoke_breaks.total_on(DateTime.now.in_time_zone("Pacific Time (US & Canada)"))} times today."
