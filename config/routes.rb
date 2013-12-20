@@ -17,6 +17,7 @@ Tenzing::Application.routes.draw do
   match 'quick_smoke' => 'smoke_breaks#quick_smoke', :as => :quick_smoke
   match 'quick_smoke_api' => 'smokes#new', :as => :quick_smoke_api
   match 'quick_coffee' => 'coffee_intakes#quick_coffee', :as => :quick_coffee
+  match 'quick_coffee_api' => 'coffee_intakes#new', :as => :quick_coffee_api
 
   resources :sessions
 
@@ -27,5 +28,6 @@ Tenzing::Application.routes.draw do
 
   namespace :api, :defaults => {:format => :json} do
     resources :smokes
+    resources :coffees
   end
 end
