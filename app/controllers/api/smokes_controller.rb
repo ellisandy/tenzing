@@ -11,7 +11,7 @@ class API::SmokesController < ApplicationController
     @user = User.where(:api_key => params[:api_key])
     unless @user.empty?
       @smoke_break = SmokeBreak.create( :user_id => @user.first.id, :recorded_time => DateTime.now )
-      redirect_to root_path
+      render json: SmokeBreak.all.count
     else
       return false
     end
@@ -20,7 +20,7 @@ class API::SmokesController < ApplicationController
     @user = User.where(:api_key => params[:api_key])
     unless @user.empty?
       @smoke_break = SmokeBreak.create( :user_id => @user.first.id, :recorded_time => DateTime.now )
-      redirect_to root_path
+      render json: SmokeBreak.all.count
     else
       return false
     end
