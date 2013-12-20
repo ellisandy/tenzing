@@ -1,22 +1,10 @@
 Tenzing::Application.routes.draw do
   resources :coffee_intakes
-
-
   resources :groceries
-
-
   resources :possessions
-
-
   resources :categories
-
-
   resources :genres
-
-
   resources :books
-
-
   resources :smoke_breaks
 
   match 'user/edit' => 'users#edit', :as => :edit_current_user
@@ -34,4 +22,8 @@ Tenzing::Application.routes.draw do
 
   get "landings/index"
   root :to => 'landings#index'
+  
+  namespace :api, :defaults => {:format => :json} do
+    resources :smokes
+  end
 end

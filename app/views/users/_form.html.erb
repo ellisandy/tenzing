@@ -1,20 +1,18 @@
-<%= form_for @user do |f| %>
-  <%= f.error_messages %>
-  <p>
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
-  </p>
-  <p>
-    <%= f.label :email, "Email Address" %><br />
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :password %><br />
-    <%= f.password_field :password %>
-  </p>
-  <p>
-    <%= f.label :password_confirmation, "Confirm Password" %><br />
-    <%= f.password_field :password_confirmation %>
-  </p>
-  <p><%= f.submit (@user.new_record? ? "Sign up" : "Update") %></p>
-<% end %>
+<div class='row'>
+  <%= simple_form_for @user do |f| %>
+    <fieldset>
+      <legend>User</legend>
+      <div class'row'>
+        <div class='large-6 small-3 columns'>
+          <div class='form-inputs'>
+            <%= f.input :username, placeholder: "Username", input_html: { class: "text" } %>
+            <%= f.input :email, placeholder: "Email", input_html: { class: "text" } %>
+            <%= f.input :api_key, placeholder: "API Key" %>
+            <%= f.input :password, :placeholder => "Password" %>
+            <%= f.input :password_confirmation, :placeholder => "Password Confirmation"  %>
+            <div class='row'>
+              <%= f.submit (@user.new_record? ? "Sign up" : "Update"), :class => "small"  %>
+            </div>
+    </fieldset>
+  <% end %>
+</div>
