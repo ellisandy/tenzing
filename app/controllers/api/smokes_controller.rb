@@ -11,7 +11,7 @@ class API::SmokesController < ApplicationController
     @user = User.where(:api_key => params[:api_key])
     unless @user.empty?
       @smoke_break = SmokeBreak.create( :user_id => @user.first.id, :recorded_time => DateTime.now )
-      render json: SmokeBreak.all.count
+      render json: @user.first.smoke_breaks.total_on(DateTime.now.in_time_zone("Pacific Time (US & Canada)"))
     else
       return false
     end
@@ -20,7 +20,7 @@ class API::SmokesController < ApplicationController
     @user = User.where(:api_key => params[:api_key])
     unless @user.empty?
       @smoke_break = SmokeBreak.create( :user_id => @user.first.id, :recorded_time => DateTime.now )
-      render json: SmokeBreak.all.count
+      render json: @user.first.smoke_breaks.total_on(DateTime.now.in_time_zone("Pacific Time (US & Canada)"))
     else
       return false
     end
