@@ -1,4 +1,5 @@
 class API::SmokesController < ApplicationController
+  before_filter :login_required, :except => [:new, :create]
   def index
     @smokes = SmokeBreak.all.count
     respond_to do |format|
