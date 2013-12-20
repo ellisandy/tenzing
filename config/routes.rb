@@ -16,6 +16,7 @@ Tenzing::Application.routes.draw do
   match 'login' => 'sessions#new', :as => :login
   match 'quick_smoke' => 'smoke_breaks#quick_smoke', :as => :quick_smoke
   match 'quick_smoke_api' => 'smokes#new', :as => :quick_smoke_api
+  match 'quick_coffee' => 'coffee_intakes#quick_coffee', :as => :quick_coffee
 
   resources :sessions
 

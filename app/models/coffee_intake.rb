@@ -5,6 +5,6 @@ class CoffeeIntake < ActiveRecord::Base
   validates :user, :presence => true
 
   def self.total_on(t)
-    SmokeBreak.all(:conditions => ["recorded_time > ? AND recorded_time < ?", t.at_beginning_of_day, t.tomorrow.at_beginning_of_day]).count
+    CoffeeIntake.all(:conditions => ["recorded_time > ? AND recorded_time < ?", t.at_beginning_of_day, t.tomorrow.at_beginning_of_day]).count
   end
 end
