@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   # new columns need to be added here to be writable through mass assignment
+<<<<<<< HEAD
   attr_accessible :username, :email, :password, :password_confirmation, :api_key
 
   attr_accessor :password
@@ -7,11 +8,22 @@ class User < ActiveRecord::Base
 
   has_many :smoke_breaks
   has_many :coffee_intakes
+=======
+  attr_accessible :username, :email, :password, :password_confirmation
+
+  attr_accessor :password
+  before_save :prepare_password
+  
+  has_many :smoke_breaks
+>>>>>>> 8c5f521ce76322f87c0575370a6dec60d4094501
   has_many :books
   has_many :genres
   has_many :categories
   has_many :possessions
+<<<<<<< HEAD
   has_many :groceries
+=======
+>>>>>>> 8c5f521ce76322f87c0575370a6dec60d4094501
 
   validates_presence_of :username
   validates_uniqueness_of :username, :email, :allow_blank => true

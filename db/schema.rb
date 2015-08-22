@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20131220033532) do
+=======
+ActiveRecord::Schema.define(:version => 20130806135350) do
+>>>>>>> 8c5f521ce76322f87c0575370a6dec60d4094501
 
   create_table "books", :force => true do |t|
     t.string   "title"
@@ -30,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20131220033532) do
     t.datetime "updated_at", :null => false
   end
 
+<<<<<<< HEAD
   create_table "coffee_intakes", :force => true do |t|
     t.integer  "user_id"
     t.datetime "recorded_time"
@@ -37,6 +42,8 @@ ActiveRecord::Schema.define(:version => 20131220033532) do
     t.datetime "updated_at",    :null => false
   end
 
+=======
+>>>>>>> 8c5f521ce76322f87c0575370a6dec60d4094501
   create_table "genres", :force => true do |t|
     t.string   "title"
     t.integer  "user_id"
@@ -44,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20131220033532) do
     t.datetime "updated_at", :null => false
   end
 
+<<<<<<< HEAD
   create_table "groceries", :force => true do |t|
     t.string   "item"
     t.string   "location"
@@ -52,6 +60,8 @@ ActiveRecord::Schema.define(:version => 20131220033532) do
     t.datetime "updated_at", :null => false
   end
 
+=======
+>>>>>>> 8c5f521ce76322f87c0575370a6dec60d4094501
   create_table "possessions", :force => true do |t|
     t.integer  "category_id"
     t.string   "title"
@@ -75,7 +85,10 @@ ActiveRecord::Schema.define(:version => 20131220033532) do
     t.string   "password_salt"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+<<<<<<< HEAD
     t.string   "api_key"
+=======
+>>>>>>> 8c5f521ce76322f87c0575370a6dec60d4094501
   end
 
 end

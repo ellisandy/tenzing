@@ -4,6 +4,7 @@ class Possession < ActiveRecord::Base
   belongs_to :category
   belongs_to :user
 end
+<<<<<<< HEAD
 # == Schema Information
 #
 # Table name: possessions
@@ -17,3 +18,5 @@ end
 #  updated_at  :datetime        not null
 #
 
+=======
+>>>>>>> 8c5f521ce76322f87c0575370a6dec60d4094501

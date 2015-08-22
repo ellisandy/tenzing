@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class='row'>
   <%= simple_form_for @user do |f| %>
     <fieldset>
@@ -16,3 +17,25 @@
     </fieldset>
   <% end %>
 </div>
+=======
+<%= form_for @user do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
+  </p>
+  <p>
+    <%= f.label :email, "Email Address" %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </p>
+  <p>
+    <%= f.label :password_confirmation, "Confirm Password" %><br />
+    <%= f.password_field :password_confirmation %>
+  </p>
+  <p><%= f.submit (@user.new_record? ? "Sign up" : "Update") %></p>
+<% end %>
+>>>>>>> 8c5f521ce76322f87c0575370a6dec60d4094501

@@ -8,6 +8,7 @@ class Book < ActiveRecord::Base
   validates_presence_of :author
   validates_presence_of :title
 end
+<<<<<<< HEAD
 # == Schema Information
 #
 # Table name: books
@@ -22,3 +23,5 @@ end
 #  genre_id   :integer
 #
 
+=======
+>>>>>>> 8c5f521ce76322f87c0575370a6dec60d4094501

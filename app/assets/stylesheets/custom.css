@@ -1,6 +1,7 @@
 label { display: none; }
 
 label.checkbox { display: inline; }
+<<<<<<< HEAD
 
 input.button.small[type="submit"]{
 	margin-top: 10px;
@@ -14,3 +15,5 @@ a.post-form-back-link {
 a.current:hover {
 	background-color: #E4E4E4;
 }
+=======
+>>>>>>> 8c5f521ce76322f87c0575370a6dec60d4094501

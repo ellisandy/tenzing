@@ -1,4 +1,5 @@
 <div class="row">
+<<<<<<< HEAD
 	<%= simple_form_for(@genre, html: { class: "custom" }) do |f| %>
 		<fieldset>
 			<legend>Genre</legend>
@@ -16,3 +17,24 @@
 				</div>
 			</div>
 	<% end %>
+=======
+   <%= simple_form_for(@genre) do |f| %>
+      <fieldset>
+	 <legend>Genre</legend>
+        <div class="row collapse">
+	   <div class="large-6 small-3 columns">
+	      <div class="form-inputs">
+		 <%= f.input :title, placeholder: "Genre name", input_html: { class: "text" } %>
+	      </div>
+	   </div>
+
+	   <div class="row"
+	      <div id="display-label" class="large-1 small-1 columns extramargin">
+		 <%= f.button :submit, :class => "small" %>
+	      </div>
+	   </div>
+	</div>
+      <% end %>
+   </fieldset>
+</div>
+>>>>>>> 8c5f521ce76322f87c0575370a6dec60d4094501

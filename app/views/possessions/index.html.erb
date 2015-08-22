@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="row">
 	<h1>Listing possessions</h1>
 </div>
@@ -34,3 +35,34 @@
 		<%= link_to 'New Possession', new_possession_path, :class => "button small" %>
 	</div>
 </div>
+=======
+<h1>Listing possessions</h1>
+
+<table>
+  <tr>
+    <th>Category</th>
+    <th>Title</th>
+    <th>User</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @possessions.each do |possession| %>
+  <tr>
+    <td><%= possession.category_id %></td>
+    <td><%= possession.title %></td>
+    <td><%= possession.user_id %></td>
+    <td><%= possession.description %></td>
+    <td><%= link_to 'Show', possession %></td>
+    <td><%= link_to 'Edit', edit_possession_path(possession) %></td>
+    <td><%= link_to 'Destroy', possession, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Possession', new_possession_path %>
+>>>>>>> 8c5f521ce76322f87c0575370a6dec60d4094501

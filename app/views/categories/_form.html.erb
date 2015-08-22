@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="row">
 	<%= simple_form_for(@category, html: { class: "custom" }) do |f| %>
 		<fieldset>
@@ -16,3 +17,17 @@
 				</div>
 			</div>
 	<% end %>
+=======
+<%= simple_form_for(@category) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :user_id %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+>>>>>>> 8c5f521ce76322f87c0575370a6dec60d4094501

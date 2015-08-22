@@ -21,6 +21,7 @@ describe Genre do
      Genre.new.should respond_to(:books)
   end
 end
+<<<<<<< HEAD
 # == Schema Information
 #
 # Table name: genres
@@ -32,3 +33,5 @@ end
 #  updated_at :datetime        not null
 #
 
+=======
+>>>>>>> 8c5f521ce76322f87c0575370a6dec60d4094501

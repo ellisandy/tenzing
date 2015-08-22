@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class='row'>
 	<div class="12 columns">
 	   <p id="notice"><%= notice %></p>
@@ -33,3 +34,30 @@
 	   <%= link_to 'Back', books_path, class: "button small" %>
 	</div>
 </div>
+=======
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @book.title %>
+</p>
+
+<p>
+  <b>Author:</b>
+  <%= @book.author %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @book.user_id %>
+</p>
+
+<p>
+  <b>Read:</b>
+  <%= @book.read %>
+</p>
+
+
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to 'Back', books_path %>
+>>>>>>> 8c5f521ce76322f87c0575370a6dec60d4094501
