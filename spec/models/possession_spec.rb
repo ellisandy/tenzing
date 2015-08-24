@@ -15,7 +15,6 @@ describe Possession do
       Possession.new.should respond_to(:category)
    end
 end
-<<<<<<< HEAD
 # == Schema Information
 #
 # Table name: possessions
@@ -28,6 +27,3 @@ end
 #  created_at  :datetime        not null
 #  updated_at  :datetime        not null
 #
-
-=======
->>>>>>> 8c5f521ce76322f87c0575370a6dec60d4094501

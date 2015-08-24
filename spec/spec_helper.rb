@@ -24,3 +24,7 @@ Spork.each_run do
     # Dir["#{Rails.root}/spec/factories/*.rb"].each {|file| require file }
   end
 end
+
+RSpec.configure do |config|
+  config.infer_spec_type_from_file_location!
+end

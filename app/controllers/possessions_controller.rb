@@ -40,12 +40,8 @@ class PossessionsController < ApplicationController
   # POST /possessions
   # POST /possessions.json
   def create
-<<<<<<< HEAD
     @possession = current_user.possessions.new(params[:possession])
-=======
-    @possession = Possession.new(params[:possession])
->>>>>>> 8c5f521ce76322f87c0575370a6dec60d4094501
-
+    
     respond_to do |format|
       if @possession.save
         format.html { redirect_to @possession, notice: 'Possession was successfully created.' }

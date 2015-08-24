@@ -5,10 +5,7 @@
 	 <table>
 	   <tr>
 	     <th>Genre</th>
-<<<<<<< HEAD
 		 <th>Number of Books</th>
-=======
->>>>>>> 8c5f521ce76322f87c0575370a6dec60d4094501
 	     <th></th>
 	     <th></th>
 	     <th></th>
@@ -17,10 +14,7 @@
 	 <% @genres.each do |genre| %>
 	   <tr>
 	     <td><%= genre.title %></td>
-<<<<<<< HEAD
 		 <td><%= genre.books.count %></td>
-=======
->>>>>>> 8c5f521ce76322f87c0575370a6dec60d4094501
 	     <td><%= link_to 'Show', genre %></td>
 	     <td><%= link_to 'Edit', edit_genre_path(genre) %></td>
 	     <td><%= link_to 'Destroy', genre, method: :delete, data: { confirm: 'Are you sure?' } %></td>

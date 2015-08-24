@@ -1,5 +1,4 @@
 <div class="row">
-<<<<<<< HEAD
 	<%= simple_form_for(@book, html: { class: "custom" }) do |f| %>
 	<fieldset>
 		<legend>Books</legend>
@@ -17,24 +16,4 @@
 				<%= f.button :submit, as: :text, :class => "small button" %>
 			</div>
 </div>
-=======
-   <%= simple_form_for(@book, html: { class: "custom" }) do |f| %>
-   <fieldset>
-      <legend>Books</legend>
-      <div class="row">
-	 <div class="large-10 small-8 columns">
-
-	     <%= f.input :title, placeholder: "Title" %>
-	     <%= f.input :author, placeholder: "Author" %>
-	     <%= f.association :genre %>
-	     <%= f.input :read, as: :boolean, placeholder: "read?" %>
-	  </div>
-       </div>
-       <div class="row">
-	  <div class="large-2 small-1 columns">
-
-	     <%= f.button :submit, as: :text, :class => "" %>
-	  </div>
-
->>>>>>> 8c5f521ce76322f87c0575370a6dec60d4094501
 <% end %>

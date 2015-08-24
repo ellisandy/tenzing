@@ -1,25 +1,10 @@
 Tenzing::Application.routes.draw do
-<<<<<<< HEAD
   resources :coffee_intakes
   resources :groceries
   resources :possessions
   resources :categories
   resources :genres
   resources :books
-=======
-  resources :possessions
-
-
-  resources :categories
-
-
-  resources :genres
-
-
-  resources :books
-
-
->>>>>>> 8c5f521ce76322f87c0575370a6dec60d4094501
   resources :smoke_breaks
 
   match 'user/edit' => 'users#edit', :as => :edit_current_user
@@ -30,12 +15,10 @@ Tenzing::Application.routes.draw do
 
   match 'login' => 'sessions#new', :as => :login
   match 'quick_smoke' => 'smoke_breaks#quick_smoke', :as => :quick_smoke
-<<<<<<< HEAD
   match 'quick_smoke_api' => 'smokes#new', :as => :quick_smoke_api
   match 'quick_coffee' => 'coffee_intakes#quick_coffee', :as => :quick_coffee
   match 'quick_coffee_api' => 'coffee_intakes#new', :as => :quick_coffee_api
-=======
->>>>>>> 8c5f521ce76322f87c0575370a6dec60d4094501
+
 
   resources :sessions
 
@@ -43,12 +26,8 @@ Tenzing::Application.routes.draw do
 
   get "landings/index"
   root :to => 'landings#index'
-<<<<<<< HEAD
-
   namespace :api, :defaults => {:format => :json} do
     resources :smokes
     resources :coffees
   end
-=======
->>>>>>> 8c5f521ce76322f87c0575370a6dec60d4094501
 end

@@ -14,10 +14,8 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     @category = Category.find(params[:id])
-<<<<<<< HEAD
+
     @possessions = @category.possessions
-=======
->>>>>>> 8c5f521ce76322f87c0575370a6dec60d4094501
 
     respond_to do |format|
       format.html # show.html.erb
@@ -44,11 +42,7 @@ class CategoriesController < ApplicationController
   # POST /categories
   # POST /categories.json
   def create
-<<<<<<< HEAD
     @category = current_user.categories.new(params[:category])
-=======
-    @category = Category.new(params[:category])
->>>>>>> 8c5f521ce76322f87c0575370a6dec60d4094501
 
     respond_to do |format|
       if @category.save
