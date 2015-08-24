@@ -40,6 +40,27 @@ class API::SmokesController < ApplicationController
             "datapoints" => @drinks_data
           }
         ]
+      },
+      "graph" => { 
+        "title" => "Consumption per Day",
+        "type" => "bar", 
+        "datasequences" => [ 
+          {
+            "title" => "Smokes",
+            "color" => "red",
+            "datapoints" => @smoke_data
+          },
+          {
+            "title" => "Coffees",
+            "color" => "blue",
+            "datapoints" => @coffee_data
+          },
+          {
+            "title" => "Drinks",
+            "color" => "green",
+            "datapoints" => @drinks_data
+          }
+        ]
       } 
     }
     respond_to do |format|
