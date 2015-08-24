@@ -7,7 +7,7 @@ gem 'annotate', '~> 2.4.1.beta'
 gem 'nifty-generators'
 gem 'simple_form'
 gem 'jquery-rails'
-gem "bcrypt-ruby", :require => "bcrypt"
+gem "bcrypt"
 gem "highcharts-rails", "~> 3.0.0"
 gem 'therubyracer'
 
