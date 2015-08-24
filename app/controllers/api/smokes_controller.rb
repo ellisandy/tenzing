@@ -1,41 +1,49 @@
 class API::SmokesController < ApplicationController
-  before_filter :login_required, :except => [:new, :create]
+  before_filter :login_required, :except => [:new, :create, :index]
   def index
-    @smokes = SmokeBreak.all.count
+    @user = User.where(:api_key => params[:api_key])
     
-    # @json_format = {
-    #   "graph" : {
-    #     "title" : "Smokes per Day"
-    #     "datasecuences" : [
-    #       {
-    #         "title": "Smokes",
-    #         "datapoints" : [
-    #           "title" : "today", "value" : "22",
-    #           "title" : "yesterday", "value" : "26",
-    #           "title" : "day before", "value" : "23"
-    #           ]
-    #       }
-    #     ]
-    #   }
-    # }
-
-    @smokes = { 
+    @date_range = (2.weeks.ago.to_date..Date.today).map{ |date| date }
+    @coffee_data = []
+    @drinks_data = []
+    @smoke_data = []
+    
+    @date_range.each do | date |
+      smokes = SmokeBreak.find(:all, :conditions => {:recorded_time => date.beginning_of_day..date.end_of_day, :user_id => @user.first}).count
+      @smoke_data.push({"title" => date, "value" => smokes})
+      
+      drinks = CoffeeIntake.find(:all, :conditions => {:recorded_time => date.beginning_of_day..date.end_of_day, :user_id => @user.first}).count
+      @drinks_data.push({"title" => date, "value" => drinks})
+      
+      coffee = DrinkIntake.find(:all, :conditions => {:recorded_time => date.beginning_of_day..date.end_of_day, :user_id => @user.first}).count
+      @coffee_data.push({"title" => date, "value" => coffee})
+    end
+    
+    @graph = { 
       "graph" => { 
         "title" => "Smokes per Day",
-        "datapoints" => [ 
+        "type" => "line", 
+        "datasequences" => [ 
           {
             "title" => "Smokes",
-            "datapoints" => [
-              {"title" => "today", "value" => "22"},
-              {"title" => "yesterday", "value" => "26"},
-              {"title" => "day before", "value" => "23"}
-            ]
+            "color" => "red",
+            "datapoints" => @smoke_data
+          },
+          {
+            "title" => "Drinks",
+            "color" => "blue",
+            "datapoints" => @coffee_data
+          },
+          {
+            "title" => "Drinks",
+            "color" => "green",
+            "datapoints" => @drinks_data
           }
         ]
       } 
     }
     respond_to do |format|
-      format.json {render :json => @smokes }
+      format.json {render :json => @graph }
     end
   end
 
