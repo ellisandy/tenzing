@@ -21,7 +21,7 @@ class API::SmokesController < ApplicationController
     
     @graph = { 
       "graph" => { 
-        "title" => "Smokes per Day",
+        "title" => "Consumption per Day",
         "type" => "line", 
         "datasequences" => [ 
           {
@@ -30,7 +30,7 @@ class API::SmokesController < ApplicationController
             "datapoints" => @smoke_data
           },
           {
-            "title" => "Drinks",
+            "title" => "Coffees",
             "color" => "blue",
             "datapoints" => @coffee_data
           },
