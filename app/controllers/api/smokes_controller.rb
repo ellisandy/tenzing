@@ -3,20 +3,20 @@ class API::SmokesController < ApplicationController
   def index
     @user = User.where(:api_key => params[:api_key])
     
-    @date_range = (2.weeks.ago.to_date..Date.today).map{ |date| date }
+    @date_range = (2.weeks.ago.to_datetime..DateTime.now.end_of_day).map{ |date| date }
     @coffee_data = []
     @drinks_data = []
     @smoke_data = []
     
     @date_range.each do | date |
-      smokes = SmokeBreak.find(:all, :conditions => {:recorded_time => date.beginning_of_day..date.end_of_day, :user_id => @user.first}).count
+      smokes = SmokeBreak.find(:all, :conditions => {:recorded_time => date.in_time_zone("Pacific Time (US & Canada)").beginning_of_day..date.in_time_zone("Pacific Time (US & Canada)").end_of_day, :user_id => @user.first}).count
       @smoke_data.push({"title" => date, "value" => smokes})
       
-      drinks = CoffeeIntake.find(:all, :conditions => {:recorded_time => date.beginning_of_day..date.end_of_day, :user_id => @user.first}).count
-      @drinks_data.push({"title" => date, "value" => drinks})
-      
-      coffee = DrinkIntake.find(:all, :conditions => {:recorded_time => date.beginning_of_day..date.end_of_day, :user_id => @user.first}).count
+      coffee = CoffeeIntake.find(:all, :conditions => {:recorded_time => date.in_time_zone("Pacific Time (US & Canada)").beginning_of_day..date.in_time_zone("Pacific Time (US & Canada)").end_of_day, :user_id => @user.first}).count
       @coffee_data.push({"title" => date, "value" => coffee})
+      
+      drinks = DrinkIntake.find(:all, :conditions => {:recorded_time => date.in_time_zone("Pacific Time (US & Canada)").beginning_of_day..date.in_time_zone("Pacific Time (US & Canada)").end_of_day, :user_id => @user.first}).count
+      @drinks_data.push({"title" => date, "value" => drinks})
     end
     
     @graph = { 
