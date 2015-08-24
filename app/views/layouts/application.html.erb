@@ -37,9 +37,6 @@
     <%= yield %>
 
 	<%= render "shared/footer" %>
+	
   </body>
 </html>
-<% if Rails.env == "development" %>
-	<%= simple_format params.to_yaml %>
-<% end %>
-=======
