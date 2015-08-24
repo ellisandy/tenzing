@@ -6,6 +6,36 @@
 <div class='row'>
 	<div class='small-12 large-4 columns'>
 		<div class='panel'>
+			<h4>Smoke Breaks</h4>
+			<ul>
+				<% @last_five_smoke_breaks.each do |smoke_break| %>
+					<li><%= smoke_break.recorded_time.in_time_zone("Pacific Time (US & Canada)").strftime("%B %e - %I:%M%p") %></li>
+				<% end%>
+			</ul>
+		</div>
+	</div>
+	<div class='small-12 large-4 columns'>
+		<div class='panel'>
+			<h4>Coffee Breaks</h4>
+			<ul>
+				<% @last_five_coffee_breaks.each do |coffee_intakes| %>
+					<li><%= coffee_intakes.recorded_time.in_time_zone("Pacific Time (US & Canada)").strftime("%B %e - %I:%M%p") %></li>
+				<% end%>
+			</ul>
+		</div>
+	</div>
+	<div class='small-12 large-4 columns'>
+		<div class='panel'>
+			<h4>Drinks</h4>
+			<ul>
+				<% @last_five_drinks.each do |drinks| %>
+					<li><%= drinks.recorded_time.in_time_zone("Pacific Time (US & Canada)").strftime("%B %e - %I:%M%p") %></li>
+				<% end%>
+			</ul>
+		</div>
+	</div>
+	<div class='small-12 large-4 columns'>
+		<div class='panel'>
 			<h4>Possessions</h4>
 			<p>Possessions: <%= Possession.where(user_id: current_user).count %></p>
 			<p>Categories: <%= Category.where(user_id: current_user).count %></p>
@@ -23,7 +53,6 @@
 	<div class='small-12 large-4 columns'>
 		<div class='panel'>
 			<h4>Groceries</h4>
-			<p>Grocery List:</p>
 			<ul>
 				<% @groceries.each do |grocery| %>
 					<li><%= grocery.item %></li>
@@ -32,18 +61,4 @@
 
 		</div>
 	</div>
-</div>
-<div class='row'>
-	<div class='small-12 large-4 columns'>
-		<div class='panel'>
-			<h4>Smoke Breaks</h4>
-			<p>Last five recorded:</p>
-			<ul>
-				<% @last_five_smoke_breaks.each do |smoke_break| %>
-					<li><%= smoke_break.recorded_time.in_time_zone("Pacific Time (US & Canada)").strftime("%B %e - %I:%M%p") %></li>
-				<% end%>
-			</ul>
-		</div>
-	</div>
-	
 </div>

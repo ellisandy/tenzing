@@ -47,7 +47,7 @@ class CoffeeIntakesController < ApplicationController
 
   def quick_coffee
     @coffee_intake = CoffeeIntake.create( :user_id => current_user.id, :recorded_time => DateTime.now )
-    redirect_to root_path, :notice => "You have  #{CoffeeIntake.total_on(DateTime.now.in_time_zone("Pacific Time (US & Canada)"))} times today."
+    redirect_to root_path, :notice => "You have had #{CoffeeIntake.total_on(DateTime.now.in_time_zone("Pacific Time (US & Canada)"))} coffees times today."
   end
 
 end

@@ -1,0 +1,2 @@
+module DrinkIntakesHelper
+end

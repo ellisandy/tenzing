@@ -26,7 +26,13 @@
 				pointStart: <%= 3.weeks.ago.in_time_zone("Pacific Time (US & Canada)").at_midnight.to_i * 1000 %>,
 				name: "Coffees",
 				data: <%= (3.weeks.ago.in_time_zone("Pacific Time (US & Canada)").to_datetime..Time.now.in_time_zone("Pacific Time (US & Canada)").to_datetime).map { |date| current_user.coffee_intakes.total_on(date)}.inspect %>
-		    }]
+		    },
+				{
+					pointInterval: <%= 1.day * 1000 %>,
+					pointStart: <%= 3.weeks.ago.in_time_zone("Pacific Time (US & Canada)").at_midnight.to_i * 1000 %>,
+					name: "Drinks",
+					data: <%= (3.weeks.ago.in_time_zone("Pacific Time (US & Canada)").to_datetime..Time.now.in_time_zone("Pacific Time (US & Canada)").to_datetime).map { |date| current_user.drink_intakes.total_on(date)}.inspect %>
+			    }]
 		});
 	});
 </script>

@@ -1,4 +1,5 @@
 Tenzing::Application.routes.draw do
+  resources :drink_intakes
   resources :coffee_intakes
   resources :groceries
   resources :possessions
@@ -18,6 +19,8 @@ Tenzing::Application.routes.draw do
   match 'quick_smoke_api' => 'smokes#new', :as => :quick_smoke_api
   match 'quick_coffee' => 'coffee_intakes#quick_coffee', :as => :quick_coffee
   match 'quick_coffee_api' => 'coffee_intakes#new', :as => :quick_coffee_api
+  match 'quick_drink' => 'drink_intakes#quick_drink', :as => :quick_drink
+  match 'quick_drink_api' => 'drink_intakes#new', :as => :quick_drink_api
 
 
   resources :sessions
