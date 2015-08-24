@@ -10,13 +10,13 @@ class API::SmokesController < ApplicationController
     
     @date_range.each do | date |
       smokes = SmokeBreak.find(:all, :conditions => {:recorded_time => date.in_time_zone("Pacific Time (US & Canada)").beginning_of_day..date.in_time_zone("Pacific Time (US & Canada)").end_of_day, :user_id => @user.first}).count
-      @smoke_data.push({"title" => date, "value" => smokes})
+      @smoke_data.push({"title" => date.to_datetime.strftime("%m-%d"), "value" => smokes})
       
       coffee = CoffeeIntake.find(:all, :conditions => {:recorded_time => date.in_time_zone("Pacific Time (US & Canada)").beginning_of_day..date.in_time_zone("Pacific Time (US & Canada)").end_of_day, :user_id => @user.first}).count
-      @coffee_data.push({"title" => date, "value" => coffee})
+      @coffee_data.push({"title" => date.to_datetime.strftime("%m-%d"), "value" => coffee})
       
       drinks = DrinkIntake.find(:all, :conditions => {:recorded_time => date.in_time_zone("Pacific Time (US & Canada)").beginning_of_day..date.in_time_zone("Pacific Time (US & Canada)").end_of_day, :user_id => @user.first}).count
-      @drinks_data.push({"title" => date, "value" => drinks})
+      @drinks_data.push({"title" => date.to_datetime.strftime("%m-%d"), "value" => drinks})
     end
     
     @graph = { 
