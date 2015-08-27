@@ -54,7 +54,20 @@
 				pointStart: <%= @smoke_breaks_hash[:time].to_i * 1000 %>,
 				name: "Smokes",
 				data: <%= @smoke_breaks_hash[:smoke_array].inspect %>
-		  }]
+		  },
+			{
+				pointInterval: <%= 1.hour * 1000 %>,
+				pointStart: <%= @coffee_intake_hash[:time].to_i * 1000 %>,
+				name: "Coffee",
+				data: <%= @coffee_intake_hash[:coffee_array].inspect %>
+		  },
+			{
+				pointInterval: <%= 1.hour * 1000 %>,
+				pointStart: <%= @drink_intake_hash[:time].to_i * 1000 %>,
+				name: "Drinks",
+				data: <%= @drink_intake_hash[:drink_array].inspect %>
+			}]
 		});
 	});
 </script>
+	
