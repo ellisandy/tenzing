@@ -7,7 +7,7 @@ class LandingsController < ApplicationController
     @last_five_coffee_breaks = current_user.coffee_intakes.last(5).reverse
     @last_five_drinks = current_user.drink_intakes.last(5).reverse
 
-		@time = 2.weeks.ago.midnight
+		@time = 1.weeks.ago.midnight
 	  @smoke_break_array = []
 		@smoke_break_group = SmokeBreak.group_by_hour(:created_at, time_zone: "Pacific Time (US & Canada)", range: @time..Time.now).count 
 		@smoke_break_group.map { |k, v| @smoke_break_array.push(v)}
