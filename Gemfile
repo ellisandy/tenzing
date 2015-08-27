@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 gem 'sqlite3'
+gem 'mysql2'
+gem 'activerecord-mysql-adapter'
 gem 'zurb-foundation'
 gem 'annotate', '~> 2.4.1.beta' 
 gem 'nifty-generators'
@@ -10,6 +12,7 @@ gem 'jquery-rails'
 gem "bcrypt"
 gem "highcharts-rails", "~> 3.0.0"
 gem 'therubyracer'
+gem 'groupdate'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -33,6 +36,7 @@ group :development do
   gem 'guard-cucumber'
   gem 'guard-rspec'
   gem 'guard-spork'
+  gem 'yaml_db'
 end
 group :test do
   gem 'shoulda-matchers'

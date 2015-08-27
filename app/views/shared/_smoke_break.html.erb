@@ -3,12 +3,17 @@
 		<div id="smoke-break-chart" style="width:100%; height:400px;"></div>
 	</div>
 
+	<div class="panel">
+		<!-- <h5>Consumptions per day</h5> -->
+		<div id="smoke-break-chart-daily" style="width:100%; height:400px;"></div>
+	</div>
+
+
 <script type="text/javascript" charset="utf-8">
 	$(function () {
-		new Highcharts.Chart({
+		$('#smoke-break-chart').highcharts({
 			colors: ['#0F2668', '#C15C43', '#2D4FB5', '#f7a35c', '#8085e9', '#f15c80', '#e4d354', '#2b908f', '#f45b5b', '#91e8e1'],
 			chart: { 
-				renderTo: 'smoke-break-chart',
 				type: 'area'
 			 },
 		    title: { text: 'Consumptions' },
@@ -29,11 +34,27 @@
 				data: <%= (2.weeks.ago.in_time_zone("Pacific Time (US & Canada)").to_datetime..Time.now.in_time_zone("Pacific Time (US & Canada)").to_datetime).map { |date| current_user.coffee_intakes.total_on(date)}.inspect %>
 		    },
 				{
-					pointInterval: <%= 1.day * 1000 %>,
+					pointInterval: <%= 1.day * 1000%>,
 					pointStart: <%= 2.weeks.ago.in_time_zone("Pacific Time (US & Canada)").at_midnight.to_i * 1000 %>,
 					name: "Drinks",
 					data: <%= (2.weeks.ago.in_time_zone("Pacific Time (US & Canada)").to_datetime..Time.now.in_time_zone("Pacific Time (US & Canada)").to_datetime).map { |date| current_user.drink_intakes.total_on(date)}.inspect %>
 			    }]
+		});
+		$('#smoke-break-chart-daily').highcharts({
+			chart: { 
+				type: 'area'
+      },
+		  title: { text: 'Consumptions' },
+		  xAxis: { type: 'datetime' },
+      yAxis: {
+		    title: { text: 'Smokes'}
+      },
+			series: [{
+				pointInterval: <%= 1.hour * 1000 %>,
+				pointStart: <%= @smoke_breaks_hash[:time].to_i * 1000 %>,
+				name: "Smokes",
+				data: <%= @smoke_breaks_hash[:smoke_array].inspect %>
+		  }]
 		});
 	});
 </script>
