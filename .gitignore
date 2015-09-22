@@ -17,3 +17,4 @@ GemFile.lock
 /vendor/bundle
 /public/assets
 .ruby_version
+/config/database.yml
