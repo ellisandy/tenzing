@@ -32,5 +32,6 @@ Tenzing::Application.routes.draw do
   namespace :api, :defaults => {:format => :json} do
     resources :smokes
     resources :coffees
+    resources :drinks
   end
 end
