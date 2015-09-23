@@ -11,7 +11,10 @@ class API::CoffeesController < ApplicationController
     @user = User.where(:api_key => params[:api_key])
     unless @user.empty?
       @smoke_break = CoffeeIntake.create( :user_id => @user.first.id, :recorded_time => DateTime.now )
-      render json: @user.first.coffee_intakes.total_on(DateTime.now.in_time_zone("Pacific Time (US & Canada)"))
+      render json: 
+        "smokes:  #{@user.first.smoke_breaks.total_on(DateTime.now.in_time_zone("Pacific Time (US & Canada)"))} \n"+
+        "coffees: #{@user.first.coffee_intakes.total_on(DateTime.now.in_time_zone("Pacific Time (US & Canada)"))} \n"+
+        "drinks:  #{@user.first.drink_intakes.total_on(DateTime.now.in_time_zone("Pacific Time (US & Canada)"))}"
     else
       return false
     end
@@ -20,7 +23,10 @@ class API::CoffeesController < ApplicationController
     @user = User.where(:api_key => params[:api_key])
     unless @user.empty?
       @smoke_break = CoffeeIntake.create( :user_id => @user.first.id, :recorded_time => DateTime.now )
-      render json: @user.first.coffee_intakes.total_on(DateTime.now.in_time_zone("Pacific Time (US & Canada)"))
+      render json: 
+        "smokes:  #{@user.first.smoke_breaks.total_on(DateTime.now.in_time_zone("Pacific Time (US & Canada)"))} \n"+
+        "coffees: #{@user.first.coffee_intakes.total_on(DateTime.now.in_time_zone("Pacific Time (US & Canada)"))} \n"+
+        "drinks:  #{@user.first.drink_intakes.total_on(DateTime.now.in_time_zone("Pacific Time (US & Canada)"))}"
     else
       return false
     end
