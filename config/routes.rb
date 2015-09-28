@@ -33,5 +33,6 @@ Tenzing::Application.routes.draw do
     resources :smokes
     resources :coffees
     resources :drinks
+    resources :counts
   end
 end
